@@ -71,5 +71,7 @@ class ProductTest < ActiveSupport::TestCase
     assert product.valid?
     product.title = "<10chars"
     assert product.invalid?
+    assert_equal ["must be greater than or equal to 10 characters"],
+      product.errors[:title]
   end
 end
