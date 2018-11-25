@@ -9,5 +9,4 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', 'Programming Ruby 1.9'
     assert_select '.price', /\£[,\d]+\.\d\d/
   end
-
 end
