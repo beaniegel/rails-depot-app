@@ -2,7 +2,7 @@ class CombineItemsInCart < ActiveRecord::Migration[5.1]
   def up
     # replace multiple items for a single product in a cart with a
     # single item
-    Cart.all.eacg do |cart|
+    Cart.all.each do |cart|
       # count the number of each product in the cart_id
       sums = cart.line_items.group(:product_id).sum(:quantity)
 
@@ -16,6 +16,6 @@ class CombineItemsInCart < ActiveRecord::Migration[5.1]
           item.save!
         end
       end
-    end  
+    end
   end
 end
